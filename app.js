@@ -65,7 +65,7 @@ app.patch("/contracts/:contractId", async (req, res, next) => {
   const { contractId } = req.params;
   const { status, refunded } = req.body;
 
-  if (status == null)
+  if (status == null && refunded == null)
     return res
       .status(422)
       .json({ status: false, message: "Status of contract is required" });
